@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/moi-logo.png" />
+		<meta name="generator" content="Hostinger Horizons" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="theme-color" content="#14532d" />
+		<meta name="msapplication-TileColor" content="#14532d" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="manifest" href="/manifest.json" />
+		<title>نظام التقارير اليومية</title>
+		<style>
+			/* إعدادات الطباعة للشعار */
+			@media print {
+				/* إخفاء عناصر غير مطلوبة للطباعة */
+				.no-print {
+					display: none !important;
+				}
+				
+				/* إظهار الشعار في جميع الصفحات */
+				.print-header {
+					display: block !important;
+					text-align: center;
+					margin-bottom: 20px;
+					page-break-after: avoid;
+				}
+				
+				.print-header img {
+					height: 60px !important;
+					margin: 0 auto 10px auto !important;
+					display: block !important;
+				}
+				
+				.print-header h1 {
+					font-size: 18pt !important;
+					font-weight: bold !important;
+					margin: 5px 0 !important;
+					color: #14532d !important;
+				}
+				
+				.print-header h2 {
+					font-size: 16pt !important;
+					font-weight: bold !important;
+					margin: 5px 0 !important;
+					color: #FFD700 !important;
+				}
+				
+				.print-header hr {
+					border: 1px solid #FFD700 !important;
+					margin: 10px 0 !important;
+				}
+				
+				/* تحسين الطباعة للجداول */
+				table {
+					border-collapse: collapse !important;
+					width: 100% !important;
+					margin: 10px 0 !important;
+				}
+				
+				table th,
+				table td {
+					border: 1px solid #FFD700 !important;
+					padding: 8px !important;
+					text-align: center !important;
+				}
+				
+				table th {
+					background-color: #FFD700 !important;
+					color: #14532d !important;
+					font-weight: bold !important;
+				}
+				
+				/* تحسين الطباعة للنصوص */
+				body {
+					font-family: 'Tahoma', 'Arial', sans-serif !important;
+					line-height: 1.6 !important;
+					color: #14532d !important;
+				}
+				
+				/* منع قطع العناصر */
+				.page-break-avoid {
+					page-break-inside: avoid !important;
+				}
+				
+				/* إضافة معلومات الصفحة */
+				@page {
+					margin: 2cm;
+					size: A4;
+				}
+			</style>
+			<!-- Mobile-specific styles -->
+			<style>
+				/* منع التكبير التلقائي في iOS */
+				input[type="text"],
+				input[type="email"],
+				input[type="password"],
+				input[type="number"],
+				input[type="tel"],
+				input[type="url"],
+				input[type="search"],
+				textarea,
+				select {
+					font-size: 16px !important;
+				}
+				
+				/* تحسين التفاعل مع اللمس */
+				* {
+					-webkit-tap-highlight-color: transparent;
+					-webkit-touch-callout: none;
+					-webkit-user-select: none;
+					-khtml-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+				}
+				
+				/* السماح بالتحديد في النصوص */
+				p, span, div, h1, h2, h3, h4, h5, h6, label, input, textarea {
+					-webkit-user-select: text;
+					-khtml-user-select: text;
+					-moz-user-select: text;
+					-ms-user-select: text;
+					user-select: text;
+				}
+				
+				/* تحسين الأداء على الجوال */
+				* {
+					-webkit-transform: translateZ(0);
+					-moz-transform: translateZ(0);
+					-ms-transform: translateZ(0);
+					-o-transform: translateZ(0);
+					transform: translateZ(0);
+				}
+				
+				/* منع التمرير الأفقي */
+				html, body {
+					overflow-x: hidden;
+					width: 100%;
+				}
+				
+				/* تحسين أحجام الأزرار للجوال */
+				button, .btn, input[type="button"], input[type="submit"] {
+					min-height: 44px;
+					min-width: 44px;
+				}
+				
+				/* تحسين أحجام النماذج للجوال */
+				input, textarea, select {
+					min-height: 44px;
+				}
+				
+				/* تحسين المسافات للجوال */
+				@media (max-width: 768px) {
+					.container {
+						padding-left: 1rem;
+						padding-right: 1rem;
+					}
+					
+					.mobile-padding {
+						padding: 1rem;
+					}
+					
+					.mobile-margin {
+						margin: 1rem;
+					}
+				}
+				
+				/* تحسين الطباعة */
+				@media print {
+					* {
+						-webkit-print-color-adjust: exact !important;
+						color-adjust: exact !important;
+					}
+				}
+			</style>
+		</head>
+		<body>
+			<div id="root"></div>
+			<script type="module" src="/src/main.jsx"></script>
+			
+			<!-- Service Worker Registration -->
+			<script>
+				if ('serviceWorker' in navigator) {
+					window.addEventListener('load', () => {
+						navigator.serviceWorker.register('/sw.js')
+							.then((registration) => {
+								console.log('SW registered: ', registration);
+							})
+							.catch((registrationError) => {
+								console.log('SW registration failed: ', registrationError);
+							});
+					});
+				}
+			</script>
+		</body>
+	</html>

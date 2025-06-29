@@ -1,0 +1,298 @@
+/* تحسينات الطباعة */
+@media print {
+  /* إخفاء العناصر غير المطلوبة للطباعة */
+  .no-print,
+  button,
+  .btn,
+  .sidebar,
+  .header,
+  .footer,
+  .mobile-menu,
+  .print-hide {
+    display: none !important;
+  }
+  
+  /* إظهار العناصر المطلوبة للطباعة */
+  .print-only,
+  .print-show {
+    display: block !important;
+  }
+  
+  /* إعدادات الصفحة */
+  @page {
+    size: A4;
+    margin: 1cm;
+  }
+  
+  /* إعدادات عامة */
+  * {
+    color: #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  body {
+    font-family: 'Cairo', 'Tahoma', sans-serif !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    direction: rtl !important;
+    text-align: right !important;
+  }
+  
+  /* العناوين */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold !important;
+    margin: 0.5em 0 !important;
+    page-break-after: avoid !important;
+  }
+  
+  h1 { font-size: 18pt !important; }
+  h2 { font-size: 16pt !important; }
+  h3 { font-size: 14pt !important; }
+  h4 { font-size: 12pt !important; }
+  
+  /* الروابط */
+  a {
+    text-decoration: none !important;
+    color: #000 !important;
+  }
+  
+  /* الجداول */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 1em 0 !important;
+  }
+  
+  th, td {
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+    text-align: right !important;
+    vertical-align: top !important;
+  }
+  
+  th {
+    background: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+  
+  /* الصور */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+  }
+  
+  /* التوقيعات */
+  .signature {
+    margin-top: 2em !important;
+    text-align: left !important;
+  }
+  
+  .signature img {
+    max-width: 150px !important;
+    max-height: 60px !important;
+  }
+  
+  /* الترويسة */
+  .print-header {
+    text-align: center !important;
+    margin-bottom: 2em !important;
+    border-bottom: 2px solid #000 !important;
+    padding-bottom: 1em !important;
+  }
+  
+  .print-header img {
+    height: 60px !important;
+    margin: 0 auto 1em !important;
+  }
+  
+  /* التذييل */
+  .print-footer {
+    margin-top: 2em !important;
+    text-align: center !important;
+    border-top: 1px solid #000 !important;
+    padding-top: 1em !important;
+    font-size: 10pt !important;
+  }
+  
+  /* فاصل الصفحات */
+  .page-break {
+    page-break-before: always !important;
+  }
+  
+  .page-break-after {
+    page-break-after: always !important;
+  }
+  
+  /* منع فاصل الصفحات */
+  .no-break {
+    page-break-inside: avoid !important;
+  }
+  
+  /* النماذج */
+  .form-section {
+    margin: 1em 0 !important;
+    padding: 1em !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  .form-field {
+    margin: 0.5em 0 !important;
+  }
+  
+  .form-label {
+    font-weight: bold !important;
+    display: inline-block !important;
+    width: 120px !important;
+  }
+  
+  .form-value {
+    display: inline-block !important;
+    margin-right: 1em !important;
+  }
+  
+  /* التقارير */
+  .report-content {
+    text-align: justify !important;
+    line-height: 1.6 !important;
+  }
+  
+  .report-meta {
+    margin: 1em 0 !important;
+    padding: 1em !important;
+    background: #f9f9f9 !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  /* الإجازات */
+  .leave-details {
+    margin: 1em 0 !important;
+  }
+  
+  .leave-status {
+    font-weight: bold !important;
+    padding: 0.25em 0.5em !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .leave-status.approved {
+    background: #d4edda !important;
+  }
+  
+  .leave-status.rejected {
+    background: #f8d7da !important;
+  }
+  
+  .leave-status.pending {
+    background: #fff3cd !important;
+  }
+  
+  /* المستندات */
+  .document-content {
+    white-space: pre-line !important;
+    font-size: 12pt !important;
+    line-height: 1.8 !important;
+  }
+  
+  /* القرارات */
+  .decision-content {
+    border: 2px solid #000 !important;
+    padding: 1em !important;
+    margin: 1em 0 !important;
+    text-align: center !important;
+  }
+  
+  /* الخطابات */
+  .letter-content {
+    text-align: justify !important;
+    line-height: 2 !important;
+  }
+  
+  /* المرفقات */
+  .attachments {
+    margin-top: 2em !important;
+    border-top: 1px solid #ccc !important;
+    padding-top: 1em !important;
+  }
+  
+  .attachment-item {
+    margin: 0.5em 0 !important;
+    font-size: 10pt !important;
+  }
+  
+  /* تحسينات للجوال عند الطباعة */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 10pt !important;
+    }
+    
+    h1 { font-size: 16pt !important; }
+    h2 { font-size: 14pt !important; }
+    h3 { font-size: 12pt !important; }
+    
+    .print-header img {
+      height: 40px !important;
+    }
+    
+    th, td {
+      padding: 4px !important;
+      font-size: 9pt !important;
+    }
+    
+    .form-label {
+      width: 80px !important;
+      font-size: 9pt !important;
+    }
+  }
+  
+  /* تحسينات للطباعة الملونة */
+  @media print and (color) {
+    .signature {
+      border: 1px solid #14532d !important;
+    }
+    
+    .leave-status.approved {
+      color: #155724 !important;
+      border-color: #155724 !important;
+    }
+    
+    .leave-status.rejected {
+      color: #721c24 !important;
+      border-color: #721c24 !important;
+    }
+    
+    .leave-status.pending {
+      color: #856404 !important;
+      border-color: #856404 !important;
+    }
+  }
+}
+
+/* تحسينات للطباعة في PDF */
+@media print and (color) {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+/* تحسينات للشعار في الطباعة */
+.print-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media print {
+  .print-logo {
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .print-logo img {
+    height: 60px !important;
+    width: auto !important;
+  }
+} 

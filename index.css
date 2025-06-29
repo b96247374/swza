@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './print.css';
+
+:root {
+  /* الألوان الافتراضية */
+  --sa-green: #14532d;
+  --sa-dark-green: #14532d;
+  --sa-gold: #FFD700;
+  --text-color: #14532d;
+  --bg-color: #ffffff;
+  --button-color: #14532d;
+  --link-color: #FFD700;
+  
+  /* الخطوط الافتراضية */
+  --primary-font: 'Cairo', sans-serif;
+  --secondary-font: 'Tahoma', sans-serif;
+  --font-size: 16px;
+  --heading-color: #14532d;
+  --body-text-color: #333333;
+}
+
+* {
+  font-family: var(--primary-font);
+  font-size: var(--font-size);
+  color: var(--body-text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--primary-font);
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+button {
+  background-color: var(--button-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  background: linear-gradient(135deg, #14532d 0%, #1e3a1a 100%) !important;
+  @apply bg-gradient-to-br from-sa-dark via-sa-dark-green to-black text-gray-200;
+  direction: rtl;
+  min-height: 100vh;
+  min-height: 100svh; /* Safari mobile viewport */
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.glass-effect {
+  background: rgba(0, 108, 53, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.signature-canvas {
+  border: 2px dashed rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.report-card, .dialog-card {
+  background: #fff !important;
+  border: 2px solid #ffd700 !important;
+  box-shadow: 0 4px 24px 0 rgba(20, 83, 45, 0.12);
+}
+
+.input-field {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(5px);
+  @apply text-white;
+}
+
+.input-field:focus {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: var(--sa-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.btn-primary {
+  background: #14532d !important;
+  color: #fff !important;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #218838 !important;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+  @apply text-white font-bold;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.6);
+}
+
+.btn-danger {
+  background: #d32f2f !important;
+  color: #fff !important;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+}
+
+.floating-label {
+  position: relative;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.floating-label textarea:focus + label,
+.floating-label textarea:not(:placeholder-shown) + label {
+  transform: translateY(-1.5rem) scale(0.8);
+  color: var(--sa-gold);
+}
+
+.floating-label label {
+  position: absolute;
+  right: 1rem;
+  top: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.text-gold {
+  color: #ffd700 !important;
+}
+
+.text-green-900 {
+  color: #14532d !important;
+}
+
+.bg-gold {
+  background: #ffd700 !important;
+  color: #14532d !important;
+}
+
+.border-gold {
+  border-color: var(--sa-gold);
+}
+
+/* ترويسة الهيدر */
+.rtl .text-gold, .rtl .text-green-900 {
+  font-weight: bold;
+}
+
+/* زيادة وضوح النصوص */
+.report-card, .glass-effect, .dialog-card, .text-gold, .text-green-900, h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 1px 2px rgba(20,83,45,0.08);
+}
+
+.user-card-name, .user-card-name * {
+  color: #10281a !important;
+  font-weight: bold;
+}
+
+/* إذا كان هناك كلاس للبطاقة نفسها */
+.user-card {
+  background: #f5faf7 !important;
+}
+
+/* أنماط نظام الإجازات */
+.leave-status-pending {
+  @apply text-yellow-400 bg-yellow-500/10 border-yellow-500/20;
+}
+
+.leave-status-approved {
+  @apply text-green-400 bg-green-500/10 border-green-500/20;
+}
+
+.leave-status-rejected {
+  @apply text-red-400 bg-red-500/10 border-red-500/20;
+}
+
+.leave-card {
+  @apply glass-effect rounded-lg p-6 space-y-4 border border-gray-600/30;
+}
+
+.leave-form-section {
+  @apply bg-black/20 p-4 rounded-lg border border-gray-600/30;
+}
+
+.leave-form-section h3 {
+  @apply text-lg font-bold text-gold mb-4 flex items-center gap-2;
+}
+
+.leave-emergency-info {
+  @apply bg-orange-500/10 border border-orange-500/20 p-4 rounded-lg;
+}
+
+.leave-emergency-info h4 {
+  @apply font-bold text-orange-400 mb-2;
+}
+
+.leave-commander-decision {
+  @apply bg-blue-500/10 border border-blue-500/20 p-4 rounded-lg;
+}
+
+.leave-commander-decision h4 {
+  @apply font-bold text-blue-400 mb-2;
+}
+
+.leave-type-badge {
+  @apply px-3 py-1 rounded-full text-xs font-bold;
+}
+
+.leave-type-annual {
+  @apply bg-green-500/20 text-green-400 border border-green-500/30;
+}
+
+.leave-type-sick {
+  @apply bg-red-500/20 text-red-400 border border-red-500/30;
+}
+
+.leave-type-emergency {
+  @apply bg-orange-500/20 text-orange-400 border border-orange-500/30;
+}
+
+.leave-type-marriage {
+  @apply bg-pink-500/20 text-pink-400 border border-pink-500/30;
+}
+
+.leave-type-birth {
+  @apply bg-purple-500/20 text-purple-400 border border-purple-500/30;
+}
+
+.leave-type-hajj {
+  @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+}
+
+.leave-type-umrah {
+  @apply bg-blue-500/20 text-blue-400 border border-blue-500/30;
+}
+
+.leave-type-study {
+  @apply bg-indigo-500/20 text-indigo-400 border border-indigo-500/30;
+}
+
+.leave-type-unpaid {
+  @apply bg-gray-500/20 text-gray-400 border border-gray-500/30;
+}
+
+.leave-type-other {
+  @apply bg-gray-500/20 text-gray-400 border border-gray-500/30;
+}
+
+/* شريط التبويبات العلوي */
+.tab-bar, .top-tabs, .main-tabs, .header-tabs {
+  background: #14532d !important;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #0002;
+}
+.tab-bar button, .top-tabs button, .main-tabs button, .header-tabs button {
+  color: #fff !important;
+  background: transparent !important;
+  font-weight: 500;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.tab-bar .active, .top-tabs .active, .main-tabs .active, .header-tabs .active {
+  background: #FFD700 !important;
+  color: #14532d !important;
+  font-weight: bold !important;
+  box-shadow: 0 2px 8px #FFD70044;
+}
+.tab-bar button:not(.active):hover, .top-tabs button:not(.active):hover, .main-tabs button:not(.active):hover, .header-tabs button:not(.active):hover {
+  background: #1B3A1B !important;
+  color: #FFD700 !important;
+}
+
+/* جدول المستخدمين */
+.user-table, .users-table, .table-users, .users-list, .user-list, .table-row, .user-row {
+  background: #fff !important;
+  color: #14532d !important;
+  border-radius: 10px;
+  border: 1px solid #FFD700 !important;
+  font-weight: 500;
+  box-shadow: 0 1px 6px #0001;
+}
+.user-table th, .users-table th, .table-users th, .user-list th {
+  background: #FFD700 !important;
+  color: #14532d !important;
+  font-weight: bold;
+}
+.user-table td, .users-table td, .table-users td, .user-list td {
+  color: #14532d !important;
+  font-weight: 500;
+}
+.user-role, .role-badge {
+  color: #FFD700 !important;
+  font-weight: bold;
+}
+
+/* أزرار ذهبية */
+.btn-gold, .gold-btn {
+  background: #FFD700 !important;
+  color: #14532d !important;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+}
+.btn-gold:hover, .gold-btn:hover {
+  background: #e6c200 !important;
+  color: #14532d !important;
+}
+
+/* تحسين تباين النصوص */
+.text-gold {
+  color: #FFD700 !important;
+}
+.text-green-dark {
+  color: #14532d !important;
+}
+
+/* إعدادات تجاوب للأجهزة المحمولة */
+@media (max-width: 768px) {
+  :root {
+    --font-size: 14px;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+  }
+  
+  .report-card, .dialog-card {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .tab-bar, .top-tabs, .main-tabs, .header-tabs {
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+  
+  .tab-bar button, .top-tabs button, .main-tabs button, .header-tabs button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .user-table, .users-table, .table-users {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+  
+  .user-table tbody, .users-table tbody, .table-users tbody {
+    display: block;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  .user-table tr, .users-table tr, .table-users tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .signature-canvas {
+    min-height: 150px;
+    touch-action: none;
+  }
+  
+  .floating-label input, .floating-label textarea {
+    font-size: 16px; /* منع الزوم في Safari */
+  }
+  
+  /* تحسين أحجام الأزرار للجوال */
+  button {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* تحسين أحجام النماذج للجوال */
+  input, textarea, select {
+    min-height: 44px;
+    font-size: 16px; /* منع التكبير التلقائي في iOS */
+  }
+}
+
+/* إعدادات للهواتف العمودية */
+@media (max-width: 480px) {
+  .glass-effect {
+    padding: 0.75rem;
+    margin: 0.25rem;
+  }
+  
+  .report-card, .dialog-card {
+    margin: 0.25rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+  }
+  
+  .tab-bar button, .top-tabs button, .main-tabs button, .header-tabs button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .btn-primary, .btn-success, .btn-danger, .btn-gold {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 8px;
+  }
+  
+  .signature-canvas {
+    min-height: 120px;
+  }
+}
+
+/* إعدادات اللمس للأجهزة المحمولة */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary, .btn-success, .btn-danger, .btn-gold,
+  .tab-bar button, .top-tabs button, .main-tabs button, .header-tabs button {
+    min-height: 44px; /* حد أدنى للمس السهل */
+    touch-action: manipulation;
+  }
+  
+  .input-field {
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+  
+  .signature-canvas {
+    touch-action: none;
+  }
+}
+
+/* إعدادات أفضل للنصوص على الأجهزة المحمولة */
+@media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .floating-label input, .floating-label textarea, .input-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+/* تحسينات الطباعة */
+@media print {
+  /* إخفاء العناصر غير المطلوبة للطباعة */
+  .no-print,
+  button,
+  .btn,
+  .button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    display: none !important;
+  }
+  
+  /* إظهار الشعار في جميع الصفحات */
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 20px;
+    page-break-after: avoid;
+  }
+  
+  .print-header img {
+    height: 60px !important;
+    margin: 0 auto 10px auto !important;
+    display: block !important;
+  }
+  
+  .print-header h1 {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    margin: 5px 0 !important;
+    color: #14532d !important;
+  }
+  
+  .print-header h2 {
+    font-size: 16pt !important;
+    font-weight: bold !important;
+    margin: 5px 0 !important;
+    color: #FFD700 !important;
+  }
+  
+  .print-header hr {
+    border: 1px solid #FFD700 !important;
+    margin: 10px 0 !important;
+  }
+  
+  /* تحسين الطباعة للجداول */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+    font-size: 12pt !important;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #FFD700 !important;
+    padding: 8px !important;
+    text-align: center !important;
+  }
+  
+  table th {
+    background-color: #FFD700 !important;
+    color: #14532d !important;
+    font-weight: bold !important;
+  }
+  
+  /* تحسين الطباعة للنصوص */
+  body {
+    font-family: 'Tahoma', 'Arial', sans-serif !important;
+    line-height: 1.6 !important;
+    color: #14532d !important;
+    font-size: 12pt !important;
+    background: white !important;
+  }
+  
+  /* منع قطع العناصر */
+  .page-break-avoid {
+    page-break-inside: avoid !important;
+  }
+  
+  /* إضافة معلومات الصفحة */
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+  
+  /* تحسين الطباعة للصور */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* تحسين الطباعة للنماذج */
+  .form-content {
+    page-break-inside: avoid !important;
+  }
+  
+  /* إضافة ترويسة وتذييل للصفحات */
+  @page :first {
+    margin-top: 3cm;
+  }
+  
+  @page :left {
+    margin-left: 2.5cm;
+    margin-right: 1.5cm;
+  }
+  
+  @page :right {
+    margin-left: 1.5cm;
+    margin-right: 2.5cm;
+  }
+}
+
+/* تحسينات للطباعة في PDF */
+@media print and (color) {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+/* تحسينات للشعار في الطباعة */
+.print-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media print {
+  .print-logo {
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .print-logo img {
+    height: 60px !important;
+    width: auto !important;
+  }
+}
+
+/* تحسينات للجداول في الجوال */
+@media (max-width: 768px) {
+  .mobile-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .mobile-table {
+    min-width: 600px;
+    font-size: 12px;
+  }
+  
+  .mobile-table th,
+  .mobile-table td {
+    padding: 6px 4px;
+    white-space: nowrap;
+  }
+}
+
+/* تحسينات للأزرار في الجوال */
+@media (max-width: 640px) {
+  .mobile-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .mobile-button-group button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 16px;
+  }
+}
+
+/* تحسينات للنماذج في الجوال */
+@media (max-width: 640px) {
+  .mobile-form {
+    padding: 1rem;
+  }
+  
+  .mobile-form input,
+  .mobile-form select,
+  .mobile-form textarea {
+    font-size: 16px;
+    padding: 0.75rem;
+  }
+  
+  .mobile-form label {
+    font-size: 14px;
+    margin-bottom: 0.25rem;
+  }
+}
